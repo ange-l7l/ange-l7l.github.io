@@ -7860,3 +7860,24 @@ blockquote.pullquote.right {
     transform: rotate(360deg);
   }
 }
+body {
+  background: transparent !important;
+}
+.layout {
+  background: transparent !important;
+}
+.recent-post-item {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}
+.card-widget {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(8px);
+}
+#post,
+.page {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}

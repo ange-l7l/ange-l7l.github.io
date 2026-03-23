@@ -1,0 +1,27 @@
+/* 让整个页面背景透明，显示底层背景图 */
+body {
+  background: transparent !important;
+}
+
+/* 文章内容区域背景透明 */
+#post,
+.page,
+.layout,
+.recent-post-item,
+.card-widget {
+  background: transparent !important;
+  backdrop-filter: blur(5px);  /* 可选：添加毛玻璃效果 */
+}
+
+/* 如果只想让文章卡片半透明 */
+.recent-post-item {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+}
+
+/* 侧边栏卡片透明 */
+.card-widget {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px);
+}
