@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>[Lit CTF2023] Ping 学习记录</title>
+      <link href="/2026/03/22/%E3%80%90Lit%20CTF2023%E3%80%91Ping%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+      <url>/2026/03/22/%E3%80%90Lit%20CTF2023%E3%80%91Ping%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>[LitCTF 2023]Ping<br>ping命令的本质就是命令行拼接<br>输入ping127.0.0.1提示只能输入ip，再次尝试127.0.0.1发包成功，于是用管道拼接输入127.0.0.1|ls依旧提示输入ip，<br><img src="/images/1.png" alt="截图"></p><p>f12查看源码，有js检查ip，所以我们禁用js<br><img src="/images/2.jpg" alt="截图"><br><img src="/images/3.png" alt="截图"><br>继续拼接查看根目录<br><img src="/images/4.jpg" alt="截图"><br>拼接访问flag文件得到结果</p><p><img src="/images/5.jpg" alt="截图"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>鎏妆盾构法突围</title>
       <link href="/2026/03/10/%E9%8E%8F%E5%A6%86%E7%9B%BE%E6%9E%84%E6%B3%95%E7%AA%81%E5%9B%B4/"/>
       <url>/2026/03/10/%E9%8E%8F%E5%A6%86%E7%9B%BE%E6%9E%84%E6%B3%95%E7%AA%81%E5%9B%B4/</url>

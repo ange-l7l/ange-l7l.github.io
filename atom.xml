@@ -10,7 +10,23 @@
   <rights>All rights reserved 2026, ange-l7l</rights>
   <subtitle>学习日记</subtitle>
   <title>鎏妆盾构法突围</title>
-  <updated>2026-03-10T14:47:03.809Z</updated>
+  <updated>2026-03-23T04:53:47.805Z</updated>
+  <entry>
+    <author>
+      <name>ange-l7l</name>
+    </author>
+    <content>
+      <![CDATA[<p>[LitCTF 2023]Ping<br>ping命令的本质就是命令行拼接<br>输入ping127.0.0.1提示只能输入ip，再次尝试127.0.0.1发包成功，于是用管道拼接输入127.0.0.1|ls依旧提示输入ip，<br><img src="/images/1.png" alt="截图"></p><p>f12查看源码，有js检查ip，所以我们禁用js<br><img src="/images/2.jpg" alt="截图"><br><img src="/images/3.png" alt="截图"><br>继续拼接查看根目录<br><img src="/images/4.jpg" alt="截图"><br>拼接访问flag文件得到结果</p><p><img src="/images/5.jpg" alt="截图"></p>]]>
+    </content>
+    <id>https://ange-l7l.github.io/2026/03/22/%E3%80%90Lit%20CTF2023%E3%80%91Ping%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://ange-l7l.github.io/2026/03/22/%E3%80%90Lit%20CTF2023%E3%80%91Ping%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <published>2026-03-22T15:10:34.000Z</published>
+    <summary>
+      <![CDATA[<p>[LitCTF 2023]Ping<br>ping命令的本质就是命令行拼接<br>输入ping127.0.0.1提示只能输入ip，再次尝试127.0.0.1发包成功，于是用管道拼接输入127.0.0.1|ls依旧提示输入ip，<br><img src="/images/1.]]>
+    </summary>
+    <title>[Lit CTF2023] Ping 学习记录</title>
+    <updated>2026-03-23T04:53:47.805Z</updated>
+  </entry>
   <entry>
     <author>
       <name>ange-l7l</name>
