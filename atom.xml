@@ -10,7 +10,23 @@
   <rights>All rights reserved 2026, ange-l7l</rights>
   <subtitle>学习日记</subtitle>
   <title>Recordddddding</title>
-  <updated>2026-03-23T12:49:23.861Z</updated>
+  <updated>2026-03-27T09:47:33.546Z</updated>
+  <entry>
+    <author>
+      <name>ange-l7l</name>
+    </author>
+    <content>
+      <![CDATA[<h1 id="NSSCTF-2022-Spring-Recruit-babyphp"><a href="#NSSCTF-2022-Spring-Recruit-babyphp" class="headerlink" title="[NSSCTF 2022 Spring Recruit]babyphp"></a>[NSSCTF 2022 Spring Recruit]babyphp</h1><h2 id="环境查看"><a href="#环境查看" class="headerlink" title="环境查看"></a>环境查看</h2><p>打开环境可以看到php代码<br><img src="/images/php.jpg" alt="图片"></p><p>总共有三次if判断，目前的回显表示还没有绕过一层</p><h2 id="第一层判断"><a href="#第一层判断" class="headerlink" title="第一层判断"></a>第一层判断</h2><p>if(isset($_POST[‘a’])&amp;&amp;!preg_match(‘&#x2F;[0-9]&#x2F;‘,$_POST[‘a’])&amp;&amp;intval($_POST[‘a’])){<br>这一层的意思是是否有通过post传递一个参数a，a的参数没有正则匹配到0-9就为真，并且把a传递的参数转换成整数，必须三个条件都为真才进入下一层判断<br>接着构造payload：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[]=a</span><br></pre></td></tr></table></figure><p>![图片](&#x2F;images&#x2F;go on.jpg)</p><p>回显go on证明已经进入下一轮判断</p><h2 id="第二层判断"><a href="#第二层判断" class="headerlink" title="第二层判断"></a>第二层判断</h2><p>if(isset($_POST[‘b1’])&amp;&amp;$_POST[‘b2’]){<br>        if($_POST[‘b1’]!&#x3D;$_POST[‘b2’]&amp;&amp;md5($_POST[‘b1’])&#x3D;&#x3D;&#x3D;md5($_POST[‘b2’])){<br>这一层的意思是看是否有post方式提交的b1和b2参数，并且这两个参数要想等，并且md5的值要强相等，通常使用数组进行绕过<br>构造payload：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[]=a&amp;b1[]=b1&amp;b2[]=b2</span><br></pre></td></tr></table></figure><p><img src="/images/yee.jpg" alt="图片"><br>成功进入下一层判断，</p><h2 id="第三层判断"><a href="#第三层判断" class="headerlink" title="第三层判断"></a>第三层判断</h2><p>if($_POST[‘c1’]!&#x3D;$_POST[‘c2’]&amp;&amp;is_string($_POST[‘c1’])&amp;&amp;is_string($_POST[‘c2’])&amp;&amp;md5($_POST[‘c1’])&#x3D;&#x3D;md5($_POST[‘c2’])){<br>                echo $flag;<br>这一层的意思是post方式传递的参数c1和c2必须都是字符串，并且md5的值弱相等，弱相等要转换的md5的值开头相等，通常使用科学计数法绕过<br>构造payload</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[]=a&amp;b1[]=b1&amp;b2[]=b2&amp;c1=QNKCDZO&amp;c2=QLTHNDT</span><br></pre></td></tr></table></figure><p><img src="/images/fla.jpg" alt="图片"><br>成功找到flag</p>]]>
+    </content>
+    <id>https://ange-l7l.github.io/2026/03/27/NSSCTF-2022-Spring-Recruit-babyphp/</id>
+    <link href="https://ange-l7l.github.io/2026/03/27/NSSCTF-2022-Spring-Recruit-babyphp/"/>
+    <published>2026-03-27T09:35:08.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="NSSCTF-2022-Spring-Recruit-babyphp"><a href="#NSSCTF-2022-Spring-Recruit-babyphp" class="headerlink" title="[NSSCTF 2022 Spring Recr]]>
+    </summary>
+    <title>[NSSCTF 2022 Spring Recruit]babyphp</title>
+    <updated>2026-03-27T09:47:33.546Z</updated>
+  </entry>
   <entry>
     <author>
       <name>ange-l7l</name>
